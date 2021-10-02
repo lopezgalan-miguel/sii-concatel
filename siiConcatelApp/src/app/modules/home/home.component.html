@@ -1,0 +1,5 @@
+<app-super-hero-searcher (superHeroNameEmit) = "searchSuperHeroName($event)"></app-super-hero-searcher>
+<div *ngFor = "let superHero of superHeroList">
+    <app-super-hero-card [superHero] = "superHero"
+    (updateClick) = "updateHero($event)"></app-super-hero-card>
+</div>
