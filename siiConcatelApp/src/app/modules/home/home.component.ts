@@ -4,6 +4,7 @@ import { SuperHeroInterface } from 'src/app/shared/interfaces/superhero.interfac
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogMenuComponent } from 'src/app/shared/components/confirm-dialog-menu/confirm-dialog-menu.component';
 import { ManageSuperHeroComponent } from 'src/app/shared/components/manage-super-hero/manage-super-hero.component';
+import { ConfirmModalInterface } from 'src/app/shared/interfaces/confirmModal.interface';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,6 +13,7 @@ import { ManageSuperHeroComponent } from 'src/app/shared/components/manage-super
 export class HomeComponent implements OnInit {
 
   superHeroList: SuperHeroInterface[] = [];
+  superHeroSearch: string = '';
   constructor(
    public superHeroService: SuperHeroService,
    public dialog: MatDialog
@@ -26,7 +28,8 @@ export class HomeComponent implements OnInit {
   }
 
   searchSuperHeroName(nameSearch:string) {
-      this.superHeroList = this.superHeroService.getSuperHeroByName(nameSearch);
+      this.superHeroSearch = nameSearch;
+      this.superHeroList = this.superHeroService.getSuperHeroByName(this.superHeroSearch);
   }
 
   createHero() {
@@ -36,7 +39,7 @@ export class HomeComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
         this.superHeroService.addNewSuperHero(result)
-        this.getAllSuperHeroe()
+        this.searchSuperHeroName(this.superHeroSearch)
       }
     });
   }
@@ -50,13 +53,13 @@ export class HomeComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
         this.superHeroService.updateSuperHero(result)
-        this.getAllSuperHeroe()
+        this.searchSuperHeroName(this.superHeroSearch)
       }
     });
   }
 
   removeHero(id:number) {
-    const data = {
+    const data:ConfirmModalInterface = {
       title: 'Kill super hero alert',
       mssg: 'You are going to eliminate a superhero, are you sure you want to go to the dark side?',
       confirmButton: 'Remove',
@@ -70,7 +73,7 @@ export class HomeComponent implements OnInit {
       console.log(result)
       if(result.accept) {
         this.superHeroService.removeSuperHeroById(id)
-        this.getAllSuperHeroe()
+        this.searchSuperHeroName(this.superHeroSearch)
       }
     });
   }

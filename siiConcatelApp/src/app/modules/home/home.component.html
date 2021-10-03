@@ -14,4 +14,11 @@
             (removeClick) = "removeHero($event)">
         </app-super-hero-card>
     </mat-grid-tile>
+    <mat-grid-tile *ngIf = "!superHeroList.length">
+        <p>
+            SuperHero not found, do you want to be a superHero?
+            <button mat-button color="primary" (click) ="createHero()">+ Create a new super hero</button>
+        </p>
+            
+    </mat-grid-tile>
 </mat-grid-list>

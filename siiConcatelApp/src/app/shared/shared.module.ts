@@ -29,7 +29,7 @@ import { ConfirmDialogMenuComponent } from './components/confirm-dialog-menu/con
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
   ],
   exports: [
     SuperHeroCardComponent,
