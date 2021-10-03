@@ -4,18 +4,18 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SuperHeroInterface } from '../../interfaces/superhero.interface';
 
 @Component({
-  selector: 'app-update-super-hero',
-  templateUrl: './update-super-hero.component.html',
-  styleUrls: ['./update-super-hero.component.scss']
+  selector: 'app-manage-super-hero',
+  templateUrl: './manage-super-hero.component.html',
+  styleUrls: ['./manage-super-hero.component.scss']
 })
-export class UpdateSuperHeroComponent implements OnInit {
+export class ManageSuperHeroComponent implements OnInit {
 
   isCreation = true;
   superHeroForm!: FormGroup;
   superHeroSelect!: SuperHeroInterface
   
   constructor(@Inject(MAT_DIALOG_DATA) public dialogData: {selectedSuperHero: SuperHeroInterface},
-  public dialogRef: MatDialogRef<UpdateSuperHeroComponent>,) { 
+  public dialogRef: MatDialogRef<ManageSuperHeroComponent>) { 
     
   }
 

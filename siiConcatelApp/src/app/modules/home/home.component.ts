@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SuperHeroService } from 'src/app/services/super-hero.service';
 import { SuperHeroInterface } from 'src/app/shared/interfaces/superhero.interface';
 import { MatDialog } from '@angular/material/dialog';
-import { UpdateSuperHeroComponent } from 'src/app/shared/components/update-super-hero/update-super-hero.component';
 import { ConfirmDialogMenuComponent } from 'src/app/shared/components/confirm-dialog-menu/confirm-dialog-menu.component';
+import { ManageSuperHeroComponent } from 'src/app/shared/components/manage-super-hero/manage-super-hero.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
   }
 
   createHero() {
-    const dialogRef = this.dialog.open(UpdateSuperHeroComponent, {
+    const dialogRef = this.dialog.open(ManageSuperHeroComponent, {
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
 
   updateHero(id:number) {
     const selectedSuperHero =  this.superHeroService.getSuperHeroById(id);
-    const dialogRef = this.dialog.open(UpdateSuperHeroComponent, {
+    const dialogRef = this.dialog.open(ManageSuperHeroComponent, {
       data: {selectedSuperHero}
     });
 

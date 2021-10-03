@@ -1,6 +1,6 @@
-<mat-grid-list cols="2" rowHeight="5:1">
-    <mat-grid-tile>
-        <app-super-hero-searcher (superHeroNameEmit) = "searchSuperHeroName($event)"></app-super-hero-searcher>
+<mat-grid-list cols="4" rowHeight="3:1">
+    <mat-grid-tile [colspan] = 3>
+        <app-super-hero-searcher (superHeroNameEmit) = "searchSuperHeroName($event)"class = "full-width"></app-super-hero-searcher>
     </mat-grid-tile>
     <mat-grid-tile>
         <button mat-button color="primary" (click) ="createHero()">+ Create a new super hero</button>

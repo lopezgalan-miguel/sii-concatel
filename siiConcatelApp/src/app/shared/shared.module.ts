@@ -12,14 +12,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { UpdateSuperHeroComponent } from './components/update-super-hero/update-super-hero.component';
+import { ManageSuperHeroComponent } from './components/manage-super-hero/manage-super-hero.component';
 import { ConfirmDialogMenuComponent } from './components/confirm-dialog-menu/confirm-dialog-menu.component';
 
 @NgModule({
   declarations: [
     SuperHeroCardComponent,
     SuperHeroSearcherComponent,
-    UpdateSuperHeroComponent,
+    ManageSuperHeroComponent,
     ConfirmDialogMenuComponent
   ],
   imports: [

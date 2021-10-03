@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UpdateSuperHeroComponent } from './update-super-hero.component';
+import { ManageSuperHeroComponent } from './manage-super-hero.component';
 
-describe('UpdateSuperHeroComponent', () => {
-  let component: UpdateSuperHeroComponent;
-  let fixture: ComponentFixture<UpdateSuperHeroComponent>;
+describe('ManageSuperHeroComponent', () => {
+  let component: ManageSuperHeroComponent;
+  let fixture: ComponentFixture<ManageSuperHeroComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UpdateSuperHeroComponent ]
+      declarations: [ ManageSuperHeroComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UpdateSuperHeroComponent);
+    fixture = TestBed.createComponent(ManageSuperHeroComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
