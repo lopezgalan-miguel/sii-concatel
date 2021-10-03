@@ -48,15 +48,26 @@ export class SuperHeroService {
   }
 
   addNewSuperHero(superHero: SuperHeroInterface): void {
+    const newId = this.superHeroList.length +1;
+    superHero.id  = newId;
     this.superHeroList.push(superHero)
   }
 
+  returnIndexOfSpecificSuperHero(id: number): number {
+    const selectedSuperHero = this.superHeroList.find(superHero => superHero.id === id);
+    if(selectedSuperHero) {
+      return this.superHeroList.indexOf(selectedSuperHero)
+    }
+    return -1;
+  }
+
   updateSuperHero(superHeroUpdated: SuperHeroInterface):void {
-    //get SuperHero
-    //Update SuperHEro info
+    const indexOfUpdatedHero = this.returnIndexOfSpecificSuperHero(superHeroUpdated.id)
+    if(indexOfUpdatedHero > -1) this.superHeroList[indexOfUpdatedHero] = superHeroUpdated;
   }
 
   removeSuperHeroById(id: number):void {
-
+    const indexOfUpdatedHero = this.returnIndexOfSpecificSuperHero(id)
+    if(indexOfUpdatedHero > -1) this.superHeroList.splice(indexOfUpdatedHero,1)
   }
 }

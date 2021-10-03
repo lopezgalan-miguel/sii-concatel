@@ -1,5 +1,17 @@
-<app-super-hero-searcher (superHeroNameEmit) = "searchSuperHeroName($event)"></app-super-hero-searcher>
-<div *ngFor = "let superHero of superHeroList">
-    <app-super-hero-card [superHero] = "superHero"
-    (updateClick) = "updateHero($event)"></app-super-hero-card>
-</div>
+<mat-grid-list cols="2" rowHeight="5:1">
+    <mat-grid-tile>
+        <app-super-hero-searcher (superHeroNameEmit) = "searchSuperHeroName($event)"></app-super-hero-searcher>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-button color="primary" (click) ="createHero()">+ Create a new super hero</button>
+    </mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list cols="3" rowHeight="2:1">
+    <mat-grid-tile *ngFor = "let superHero of superHeroList">
+        <app-super-hero-card 
+            [superHero] = "superHero"
+            (updateClick) = "updateHero($event)"
+            (removeClick) = "removeHero($event)">
+        </app-super-hero-card>
+    </mat-grid-tile>
+</mat-grid-list>

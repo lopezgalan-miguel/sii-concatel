@@ -4,7 +4,10 @@ import { NgModule } from '@angular/core';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+
 import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatGridListModule } from '@angular/material/grid-list';
 @NgModule({
   declarations: [
     HomeComponent
@@ -13,7 +16,9 @@ import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
     BrowserModule,
     HomeRoutingModule,
     SharedModule,
-    MatDialogModule
+    MatDialogModule,
+    MatButtonModule,
+    MatGridListModule,
   ],
   providers: [
     {

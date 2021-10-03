@@ -1,0 +1,14 @@
+
+<h1 mat-dialog-title>{{dialogData.title}}</h1>
+<div mat-dialog-content>
+    <p>
+        {{dialogData.mssg}}
+    </p>
+    <div>
+        <mat-card-actions>
+            <button mat-button color="warn" (click) = "accept()" *ngIf="dialogData.removeType">{{dialogData.confirmButton}}</button>
+            <button mat-button color="primary"  *ngIf="!dialogData.removeType">{{dialogData.confirmButton}}</button>
+            <button mat-button  (click) = "cancel()">Cancel</button>
+        </mat-card-actions>
+    </div>
+</div>

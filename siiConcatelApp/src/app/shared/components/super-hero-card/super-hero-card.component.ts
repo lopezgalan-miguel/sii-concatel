@@ -10,6 +10,7 @@ export class SuperHeroCardComponent implements OnInit {
 
   @Input() superHero!: SuperHeroInterface;
   @Output() updateClick= new EventEmitter()
+  @Output() removeClick= new EventEmitter()
   constructor() {
   }
 
@@ -18,6 +19,10 @@ export class SuperHeroCardComponent implements OnInit {
 
   updateCall() {
     this.updateClick.emit(this.superHero.id);
+  }
+
+  removeCall() {
+    this.removeClick.emit(this.superHero.id);
   }
 
 }

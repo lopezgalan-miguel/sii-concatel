@@ -10,36 +10,42 @@ import { SuperHeroInterface } from '../../interfaces/superhero.interface';
 })
 export class UpdateSuperHeroComponent implements OnInit {
 
+  isCreation = true;
   superHeroForm!: FormGroup;
   superHeroSelect!: SuperHeroInterface
+  
   constructor(@Inject(MAT_DIALOG_DATA) public dialogData: {selectedSuperHero: SuperHeroInterface},
   public dialogRef: MatDialogRef<UpdateSuperHeroComponent>,) { 
     
   }
 
   ngOnInit(): void {
-    this.superHeroSelect = this.dialogData.selectedSuperHero;
+    
+    if(this.dialogData?.selectedSuperHero) {
+      this.superHeroSelect = this.dialogData.selectedSuperHero;
+      this.isCreation = false;
+    }
     this.setData()
   }
 
   setData() {
-   
     this.superHeroForm = new FormGroup({
-      name: new FormControl(this.superHeroSelect.name, Validators.required),
-      lastName: new FormControl(this.superHeroSelect.lastName, Validators.required),
-      age: new FormControl(this.superHeroSelect.age)
+      name: new FormControl(this.superHeroSelect?.name || null, Validators.required),
+      lastName: new FormControl(this.superHeroSelect?.lastName || null, Validators.required),
+      age: new FormControl(this.superHeroSelect?.age)
     });
   }
 
   sendHero() {
-    console.log(this.superHeroSelect)
-     const superHeroUpdate = {
-      id: this.superHeroSelect.id,
-      name: this.superHeroForm.get('name')?.value,
-      lastName: this.superHeroForm.get('lastName')?.value,
-      age: this.superHeroForm.get('age')?.value || 0,
+    if(this.superHeroForm.valid) {
+      const superHeroUpdate = {
+        id: this.superHeroSelect?.id || null,
+        name: this.superHeroForm.get('name')?.value,
+        lastName: this.superHeroForm.get('lastName')?.value,
+        age: this.superHeroForm.get('age')?.value || 0,
+      }
+      this.dialogRef.close(superHeroUpdate)
     }
-    this.dialogRef.close(superHeroUpdate)
   }
 
   cancel() {
