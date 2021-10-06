@@ -70,7 +70,6 @@ export class HomeComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
       if(result.accept) {
         this.superHeroService.removeSuperHeroById(id)
         this.searchSuperHeroName(this.superHeroSearch)

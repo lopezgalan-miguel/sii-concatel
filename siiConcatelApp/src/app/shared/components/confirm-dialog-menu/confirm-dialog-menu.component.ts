@@ -14,7 +14,6 @@ export class ConfirmDialogMenuComponent implements OnInit {
     public dialogRef: MatDialogRef<ConfirmDialogMenuComponent>,) { }
 
   ngOnInit(): void {
-    console.log(this.dialogData)
   }
 
   accept() {
