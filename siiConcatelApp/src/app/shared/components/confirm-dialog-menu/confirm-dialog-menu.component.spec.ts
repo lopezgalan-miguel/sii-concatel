@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ConfirmDialogMenuComponent } from './confirm-dialog-menu.component';
 
-describe('ConfirmDialogMenuComponent', () => {
+xdescribe('ConfirmDialogMenuComponent', () => {
   let component: ConfirmDialogMenuComponent;
   let fixture: ComponentFixture<ConfirmDialogMenuComponent>;
 

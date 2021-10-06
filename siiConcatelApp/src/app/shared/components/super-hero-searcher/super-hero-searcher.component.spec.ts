@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormControl } from '@angular/forms';
 
 import { SuperHeroSearcherComponent } from './super-hero-searcher.component';
 
@@ -21,5 +22,14 @@ describe('SuperHeroSearcherComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('send search emit correct string', () => {
+    const testStringSuperHeroName = 'test hero name'
+   const spyEmit = spyOn(component.superHeroNameEmit, 'emit');
+   component.superHeroName = new FormControl(testStringSuperHeroName)
+   component.sendSearch()
+   expect(spyEmit).toHaveBeenCalled()
+   expect(spyEmit).toHaveBeenCalledWith(testStringSuperHeroName)
   });
 });

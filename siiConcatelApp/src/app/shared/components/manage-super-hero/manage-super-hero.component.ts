@@ -20,8 +20,7 @@ export class ManageSuperHeroComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
-    if(this.dialogData?.selectedSuperHero) {
+    if(this.dialogData.selectedSuperHero) {
       this.superHeroSelect = this.dialogData.selectedSuperHero;
       this.isCreation = false;
     }
